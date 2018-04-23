@@ -1,15 +1,9 @@
 platform :ios, '9.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
-source 'git@github.com:emartech/pod-private.git'
 
 target "MobileEngage" do
-  if ENV["DEV"] then
-    puts 'Running in DEV mode'
-    pod 'CoreSDK', :path => '../ios-core-sdk/'
-  else
-    pod 'CoreSDK'
-  end
+  pod 'CoreSDK', :git => 'https://github.com/TomasLinhart/ios-core-sdk.git', :branch => 'no-logging'
 end
 
 target "MobileEngageTests" do
